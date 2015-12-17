@@ -264,8 +264,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onPause() {
         super.onPause();
 
-        prefsEditor.putBoolean(PREFS_BOOL_PERM_DENIED, false);
-        prefsEditor.commit();
         savePrefs();
     }
 
@@ -275,6 +273,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void savePrefs() {
         prefsEditor.putString(PREFS_STRING_SUBJECT, subjectEditText.getText().toString());
         prefsEditor.putString(PREFS_STRING_PATTERN, patternEditText.getText().toString());
+        prefsEditor.putBoolean(PREFS_BOOL_PERM_DENIED, false);
+        prefsEditor.commit();
         prefsEditor.commit();
     }
 
