@@ -1,14 +1,19 @@
 package smtchahal.regextester;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -55,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String PREFS_BOOL_LITERAL = PACKAGE_NAME + ".Literal";
     private static final String PREFS_BOOL_MULTILINE = PACKAGE_NAME + ".Multline";
     private static final String PREFS_INT_MATCH = PACKAGE_NAME + ".Match";
+    private static final String PREFS_BOOL_PERM_DENIED = PACKAGE_NAME + ".PermissionDenied";
     private String initialJsonArrayString = "[]";
     private FloatingActionButton findButton;
     private FloatingActionButton saveButton;
@@ -151,24 +157,70 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (bundle != null) {
                     fileUri = (Uri) bundle.get(Intent.EXTRA_STREAM);
                 }
-                Log.d(LOG_TAG, "fileUri = " + fileUri);
 
+                // If a file was "shared"
                 if (fileUri != null) {
-                    try {
-                        String fileUriString = fileUri.toString();
-                        String filePath = fileUriString.substring("file://".length(), fileUriString.length());
-                        Log.d(LOG_TAG, "filePath = " + filePath);
-                        sharedText = getStringFromFile(filePath);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    Log.d(LOG_TAG, "fileUri = " + fileUri);
+                    String fileUriString = fileUri.toString();
+                    String filePath = fileUriString.substring("file://".length(), fileUriString.length());
+                    Log.d(LOG_TAG, "filePath = " + filePath);
+
+                    // Marshmallow+: If permission not granted...
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                            && !prefs.getBoolean(PREFS_BOOL_PERM_DENIED, false)
+                            && ContextCompat.checkSelfPermission(this,
+                            Manifest.permission.READ_EXTERNAL_STORAGE)
+                            != PackageManager.PERMISSION_GRANTED) {
+
+                        // ...request it
+                        ActivityCompat.requestPermissions(this,
+                                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                                1);
+                    } else if (prefs.getBoolean(PREFS_BOOL_PERM_DENIED, false)) {
+                        Snackbar.make(mainClayout, R.string.permission_grant_failed, Snackbar.LENGTH_LONG)
+                                .setAction(R.string.snackbar_button_dismiss, null)
+                                .show();
+                    } else {
+                        try {
+                            sharedText = getStringFromFile(filePath);
+                            if (sharedText != null) {
+                                subjectEditText.setText(sharedText);
+                                Log.d(LOG_TAG, "Logging sharedText below...");
+                                Log.d(LOG_TAG, sharedText);
+                            } else {
+                                Log.d(LOG_TAG, "sharedText is null");
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
-            }
-            if (sharedText != null) {
+            } else {
                 subjectEditText.setText(sharedText);
+                Log.d(LOG_TAG, "Logging sharedText below...");
+                Log.d(LOG_TAG, sharedText);
             }
-            Log.d(LOG_TAG, "Logging sharedText below...");
-            Log.d(LOG_TAG, sharedText);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String permissions[],
+                                           @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.d(LOG_TAG, "Permission granted");
+                    prefsEditor.putBoolean(PREFS_BOOL_PERM_DENIED, false);
+                    prefsEditor.commit();
+                    handleImplicitIntents();
+                } else {
+                    Log.d(LOG_TAG, "Permission denied");
+                    prefsEditor.putBoolean(PREFS_BOOL_PERM_DENIED, true);
+                    prefsEditor.commit();
+                }
+            }
         }
     }
 
@@ -212,6 +264,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onPause() {
         super.onPause();
 
+        prefsEditor.putBoolean(PREFS_BOOL_PERM_DENIED, false);
+        prefsEditor.commit();
         savePrefs();
     }
 

@@ -79,4 +79,5 @@
     </string>
     <string name="modify_regex_replace_confirm_button_ok">Yes, I am sure</string>
     <string name="modify_regex_replace_confirm_button_cancel">@string/generic_button_cancel</string>
+    <string name="permission_grant_failed">Failed to get permission</string>
 </resources>
