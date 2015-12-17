@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Regex Tester</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_view_saved_regexes">View saved regexes</string>
+    <string name="generic_button_ok">OK</string>
+    <string name="generic_button_cancel">Cancel</string>
+    <string name="json_exception_toast_message">If you\'re seeing this, something has gone impossibly wrong.</string>
+    <string name="action_canceled_toast_message">Action canceled</string>
+    <string name="key_cannot_be_empty">Error: Name cannot be empty</string>
+    <string name="regex_saved_success_message">Regex saved successfully</string>
+    <string name="no_saved_regexes">No saved regexes found</string>
+    <string name="io_exception_toast_message">IOException: %1$s</string>
+
+    <string name="snackbar_button_dismiss">Dismiss</string>
+    <string name="regex_deleted_success">Regex deleted successfully</string>
+    <string name="test_regex">Search text with regex</string>
+    <string name="pattern_edittext_hint">reg(ular expressions?|ex(es|ps?)?)</string>
+    <string name="pattern_edittext_preset_text">reg(ular expressions?|ex(es|ps?)?)</string>
+    <string name="subject_edittext_hint">Text to test regular expressions against</string>
+    <string name="subject_edittext_preset_text">
+        Regular expressions, also known as regex or regexp, are awesome.
+    </string>
+    <string name="case_insensitive_checkbox_text">Case insensitive</string>
+    <string name="find_button_text">Find Next</string>
+    <string name="syntax_error_title">Syntax error</string>
+    <string name="syntax_error_button_ok">@string/generic_button_ok</string>
+    <string name="no_matches_found">No matches found</string>
+    <string name="cannot_request_focus_err_msg">Error: Cannot request focus</string>
+    <string name="reached_bottom">Reached bottom, continuing from top…</string>
+    <string name="syntax_error_description">%1$s near index %2$d:\n\n"</string>
+    <string name="unix_lines_checkbox_text">Use Unix lines</string>
+    <string name="comments_checkbox_text">Allow comments</string>
+    <string name="dot_all_checkbox_text">\'.\' matches newline</string>
+    <string name="literal_checkbox_text">Take pattern literally</string>
+    <string name="multiline_checkbox_text">Multiline expression</string>
+    <string name="action_menu_about_title">About</string>
+    <string name="save_button_text">Save regex</string>
+    <string name="save_regex_title">Save regex</string>
+    <string name="save_regex_button_ok">Save</string>
+    <string name="save_regex_button_cancel">@string/generic_button_cancel</string>
+    <string name="key_exists_title">\"%1$s\" exists</string>
+    <string name="key_exists_button_ok">Yes</string>
+    <string name="key_exists_button_cancel">@string/generic_button_cancel</string>
+    <string name="save_regex_key_hint">Name for the regular expression</string>
+    <string name="action_view_saved_regexes">View saved regexes</string>
+    <string name="key_exists_message">
+        A regex called \"%1$s\" already exists, do you want to replace it? Old regex is:\n\n%2$s
+    </string>
+    <string name="save_confirm_text">
+        Enter a name to save regex \"%1$s\" with.
+    </string>
+    <string name="about_text">
+        A simple Android app for testing regular expressions.
+        \n\nThis app was made by Sumit Chahal (aka smtchahal).
+        Source code is available on <a href="https://github.com/smtchahal/RegexTester">GitHub</a>.
+        This app is licensed under the MIT License.
+    </string>
+    <string-array name="saved_regex_actions">
+        <item>Use</item>
+        <item>Share</item>
+        <item>Modify</item>
+        <item>Delete</item>
+    </string-array>
+    <string name="modify_regex_title">Modify regex \"%1$s\"</string>
+    <string name="modify_regex_key_hint">New name for the regex</string>
+    <string name="modify_regex_value_hint">New regex</string>
+    <string name="delete_regex_title">Delete regex \"%1$s\"?</string>
+    <string name="delete_regex_message">
+        Are you sure you want to delete the regex called \"%1$s\"? This cannot be undone.
+    </string>
+    <string name="delete_regex_button_ok">Yes, I am sure</string>
+    <string name="delete_regex_button_cancel">@string/generic_button_cancel</string>
+    <string name="share_extra_subject">Share regex for %1$s</string>
+    <string name="touch_and_hold_message">Touch &amp; hold for more options</string>
+    <string name="modify_regex_replace_confirm_title">Replace \"%1$s\"</string>
+    <string name="modify_regex_replace_confirm_message">
+        Are you sure you want to replace the regex called \"%1$s\"? This cannot be undone. Old regex is\n\n%2$s
+    </string>
+    <string name="modify_regex_replace_confirm_button_ok">Yes, I am sure</string>
+    <string name="modify_regex_replace_confirm_button_cancel">@string/generic_button_cancel</string>
+</resources>

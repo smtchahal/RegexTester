@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Blue (default) -->
+    <color name="blue500">#2196f3</color>
+    <color name="blue600">#1e88e5</color>
+    <color name="blue700">#1976d2</color>
+
+    <!-- Red -->
+    <color name="red500">#f44336</color>
+    <color name="red600">#e53935</color>
+    <color name="red700">#d32f2f</color>
+
+    <!-- Pink -->
+    <color name="pink500">#e91e63</color>
+    <color name="pink600">#d81b60</color>
+    <color name="pink700">#c2185b</color>
+
+    <!-- Purple -->
+    <color name="purple500">#9c27b0</color>
+    <color name="purple600">#8e24aa</color>
+    <color name="purple700">#7b1fa2</color>
+
+    <!-- Deep Purple -->
+    <color name="deepPurple500">#673ab7</color>
+    <color name="deepPurple600">#5e35b1</color>
+    <color name="deepPurple700">#512da8</color>
+
+    <!-- Indigo -->
+    <color name="indigo500">#3f51b5</color>
+    <color name="indigo600">#3949ab</color>
+    <color name="indigo700">#303f9f</color>
+
+    <!-- Light Blue -->
+    <color name="lightBlue500">#03a9f4</color>
+    <color name="lightBlue600">#039be5</color>
+    <color name="lightBlue700">#0288d1</color>
+
+    <!-- Cyan -->
+    <color name="cyan500">#00bcd4</color>
+    <color name="cyan600">#00acc1</color>
+    <color name="cyan700">#0097a7</color>
+</resources>

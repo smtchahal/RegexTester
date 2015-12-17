@@ -1,0 +1,48 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    <group
+        android:checkableBehavior="all">
+        <item
+            android:id="@+id/case_insensitive_checkbox"
+            app:showAsAction="never"
+            android:checked="false"
+            android:title="@string/case_insensitive_checkbox_text" />
+        <item
+            android:id="@+id/unix_lines_checkbox"
+            app:showAsAction="never"
+            android:checked="false"
+            android:title="@string/unix_lines_checkbox_text" />
+        <item
+            android:id="@+id/comments_checkbox"
+            app:showAsAction="never"
+            android:checked="false"
+            android:title="@string/comments_checkbox_text" />
+        <item
+            android:id="@+id/dot_all_checkbox"
+            app:showAsAction="never"
+            android:checked="false"
+            android:title="@string/dot_all_checkbox_text" />
+        <item
+            android:id="@+id/literal_checkbox"
+            app:showAsAction="never"
+            android:checked="false"
+            android:title="@string/literal_checkbox_text" />
+        <item
+            android:id="@+id/multiline_checkbox"
+            app:showAsAction="never"
+            android:checked="false"
+            android:title="@string/multiline_checkbox_text" />
+    </group>
+
+    <item
+        android:id="@+id/action_menu_view_saved_regexes"
+        android:title="@string/action_view_saved_regexes"
+        app:showAsAction="never" />
+
+    <!-- Action "About" - should always stay at the bottom -->
+    <item
+        android:id="@+id/action_menu_about"
+        android:title="@string/action_menu_about_title"
+        app:showAsAction="never" />
+</menu>

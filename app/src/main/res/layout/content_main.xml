@@ -1,0 +1,42 @@
+<RelativeLayout
+    android:id="@+id/activity_main_primary_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditText
+        android:id="@+id/pattern_edittext"
+        android:typeface="monospace"
+        android:hint="@string/pattern_edittext_hint"
+        android:text="@string/pattern_edittext_preset_text"
+        android:inputType="textNoSuggestions"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/subject_edittext"
+        android:text="@string/subject_edittext_preset_text"
+        android:gravity="top"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_below="@id/pattern_edittext"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:hint="@string/subject_edittext_hint"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/dummy_view" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fab_size"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/dummy_view" />
+</RelativeLayout>
