@@ -58,6 +58,7 @@
     </string>
     <string-array name="saved_regex_actions">
         <item>Use</item>
+        <item>Copy</item>
         <item>Share</item>
         <item>Modify</item>
         <item>Delete</item>
